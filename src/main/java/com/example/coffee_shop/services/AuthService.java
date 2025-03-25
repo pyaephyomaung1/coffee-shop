@@ -37,7 +37,7 @@ public class AuthService {
             passwordEncoder.encode(registerDto.getPassword()),
             registerDto.getEmail()
         );
-        Role userRole = roleDao.findByName("ROLE_USER")
+        Role userRole = roleDao.findByRoleName("ROLE_USER")
         .orElseThrow(() -> new RuntimeException("Role not found: ROLE_USER"));
         customer.addRole(userRole);
         Customer registeredCustomer = customerDao.save(customer);

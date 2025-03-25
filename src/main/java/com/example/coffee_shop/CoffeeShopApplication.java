@@ -4,6 +4,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Profile;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.example.coffee_shop.dao.CustomerDao;
@@ -25,7 +26,7 @@ public class CoffeeShopApplication {
 
 	@Bean
 	@Transactional
-	// @Profile("dev")
+	@Profile("dev")
 	public ApplicationRunner init(){
 		return args -> {
 			// Add some customers
